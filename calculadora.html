@@ -1,0 +1,166 @@
+<!--
+    Javascript from zero to heroBI-02-2020
+Fecha de entrega: 23 mar.
+Tarea - Calculadora
+100 puntos
+Ing. Leonardo Correa Flores 17 mar.
+Alumno. Eduardo Calderon C.
+
+Programar:
+* 3 funciones científicas adicionales a las que ya se programaron
+* Modificar el diagrama de flujo
+* Mejorar la interface gráfica, para que se parezca al prototipo
+Diagrama calculadora.dia
+-->
+
+<HTML>
+	<HEAD>
+        <!--Link al CSS-->
+		<link rel="stylesheet" type="text/css" href="Calculadora.css">
+
+		<script>
+			var memoria = 0;
+			// 0 = No hay funcion, 1 = Suma , 2 = Resta, 3 = Multiplicación, 4 = División
+			var funcion = 0;
+
+			// --------------------------------------------------------------------------- //
+			// Función para los botones
+			function botonNumero(numero) {
+				elemento = document.getElementById('txt_pantalla').value + numero;
+				document.getElementById('txt_pantalla').value = elemento;
+			}
+
+			// --------------------------------------------------------------------------- //
+			// Función para las funciones
+			function botonFuncion(func) {
+				numeroPantalla = document.getElementById('txt_pantalla').value;
+				memoria = numeroPantalla;
+				funcion = func;
+
+				simbolo = "";
+				if(func == 1) { simbolo = "+"; }
+				if(func == 2) { simbolo = "-"; }
+				if(func == 3) { simbolo = "*"; }
+				if(func == 4) { simbolo = "/"; }
+				if(func == 5) { simbolo = "%"; }
+
+				document.getElementById('txt_memoria').value = memoria + " " + simbolo;
+
+				document.getElementById('txt_pantalla').value = "";
+			}
+
+			// --------------------------------------------------------------------------- //
+			// Función para evaluar el resultado
+			function botonResultado() {
+				numeroPantalla = document.getElementById('txt_pantalla').value;
+
+				numeroPantalla = parseInt(numeroPantalla);
+				memoria = parseInt(memoria);
+
+				resultado = "";
+
+				simbolo = "";
+				if(funcion == 0 ){
+					// No hago nada
+					resultado = "No puedo hacer nada";
+				}
+
+				if(funcion == 1) {
+					// Debo sumar
+					resultado = memoria + numeroPantalla;
+					simbolo = "+";
+				}
+
+				if(funcion == 2) {
+					// Debo restar
+					resultado = memoria - numeroPantalla;
+					simbolo = "-";
+				}
+
+				if(funcion == 3) {
+					// Debo multiplicar
+					resultado = memoria * numeroPantalla;
+					simbolo = "*";
+				}
+
+				if(funcion == 4) {
+					// Debo dividir
+					resultado = memoria / numeroPantalla;
+					simbolo = "/";
+				}
+
+				if(funcion == 5){
+					numeroPantalla=100;
+					resultado = memoria/numeroPantalla;
+					simbolo = "%"
+				}
+
+				//  limpia las panallas de resultado y memoria
+				if(funcion == 6){
+					document.getElementById('txt_pantalla','txt_memoria').value = "";
+				}
+
+				document.getElementById('txt_pantalla').value = resultado;
+
+				document.getElementById('txt_memoria').value = memoria + " " + simbolo + " " + numeroPantalla;
+			}
+			
+		</script>
+
+	</HEAD>
+
+	<BODY onload="limpiarCampos();">
+		<div id="calculadora">
+			<div id="titulo">
+				<h1>Calculadora</h1>
+			</div>
+
+			<div id="memoria">
+				<input id="txt_memoria" readonly>
+			</div>
+			<div id="pantalla">
+				<input id="txt_pantalla" readonly>
+			</div>
+
+			<div id="botones">
+				<div id="numeros">
+					<div id="fila_01">
+						<button id="btn_01" onclick="botonNumero(1);">1</button>
+						<button id="btn_02" onclick="botonNumero(2);">2</button>
+						<button id="btn_03" onclick="botonNumero(3);">3</button>
+					</div>
+
+					<div id="fila_02">
+						<button id="btn_04" onclick="botonNumero(4);">4</button>
+						<button id="btn_05" onclick="botonNumero(5);">5</button>
+						<button id="btn_06" onclick="botonNumero(6);">6</button>
+					</div>
+
+					<div id="fila_03">
+						<button id="btn_07" onclick="botonNumero(7);">7</button>
+						<button id="btn_08" onclick="botonNumero(8);">8</button>
+						<button id="btn_09" onclick="botonNumero(9);">9</button>
+					</div>
+
+					<div id="fila_04">
+						<button id="btn_00" onclick="botonNumero(0);">0</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="funciones">
+				<button id="btn_suma"  onclick="botonFuncion(1);">Sumar</button>
+				<button id="btn_resta" onclick="botonFuncion(2);">Restar</button>
+				<button id="btn_mult"  onclick="botonFuncion(3);">Multiplicar</button>
+				<button id="btn_div"   onclick="botonFuncion(4);">Dividir</button>
+				<!-- P L U S -->
+				<button id="btn_por"   onclick="botonFuncion(5);">Porciento</button>
+				<button id="btn_c"   onclick="botonFuncion(6);">C</button>
+
+				<button id="btn_res" onclick="botonResultado();">Resultado</button>
+			</div>
+
+		</div>
+	</BODY>
+<HTML>

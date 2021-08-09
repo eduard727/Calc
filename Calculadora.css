@@ -1,0 +1,87 @@
+body{
+	background-image: url(estrellas.jpg);
+    text-align: center;
+    margin-top: 170px;
+}
+
+input{
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 25px;
+    size: 44px;
+    border-radius: 4px;
+}
+
+#calculadora{ 
+    background-color: #9ecffd83;
+    opacity: 90%;
+    width: 250px;
+    height: 350px;
+    margin: auto;/* centra  */
+    border-radius: 8px;
+}
+
+#txt_memoria{
+    text-align: center;
+    width: 230px;
+}
+
+#txt_pantalla{
+    border-top: 5px;
+    text-align: right;
+    width: 230px;
+}
+
+#titulo{
+    margin: center;
+    width: 250px;
+    height: 40px;
+    color: #00395a;
+}
+
+#numeros{
+    margin-top: 15px;
+    float: left;
+    height: 190px;
+    width: 150px;
+    font-size: 16px;
+}
+
+#btn_01,#btn_02,
+#btn_03,#btn_04,
+#btn_05,#btn_06,
+#btn_07,#btn_08,
+#btn_09,#btn_00{
+    margin-bottom: 5px;
+    font-style: normal;
+    text-align: center;
+    font-size: 16;
+    border-radius: 8px;
+    height: 40px;
+    width: 40px;
+}
+
+#funciones{
+    margin-top: 15px;
+    float:right ;
+    height: 190px;
+    width: 100px;
+}
+
+#btn_suma,#btn_resta,
+#btn_mult,#btn_div,
+#btn_por,#btn_c,#btn_res{
+    width: 90px;
+    height: 25px;
+    font-size: 14px;
+    font-style: oblique;
+}
+
+#btn_c{
+    color: #f02106;
+}
+
+#btn_res{
+    color: #0bad34;
+}
+
